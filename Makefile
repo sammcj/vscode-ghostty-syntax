@@ -1,4 +1,4 @@
-.PHONY: all build lint test package clean install watch install-extension setup
+.PHONY: all build lint test package clean install watch package-install setup
 
 all: build
 
@@ -20,8 +20,8 @@ test: build
 package: lint test build
 	pnpm run package
 
-install-extension: package
-	$$SHELL -ic 'code --install-extension ghostty-config-syntax-*.vsix --force'
+package-install: package
+	$$SHELL -ic 'code --package-install ghostty-config-syntax-*.vsix --force'
 
 clean:
 	rm -rf out node_modules *.vsix
@@ -38,7 +38,7 @@ help:
 	@echo "  lint              - Lint the source code"
 	@echo "  test              - Run tests"
 	@echo "  package           - Package the project"
-	@echo "  install-extension - Package and install into VSCode"
+	@echo "  package-install - Package and install into VSCode"
 	@echo "  clean             - Clean build artifacts and dependencies"
 	@echo "  watch             - Watch for changes and rebuild automatically"
 

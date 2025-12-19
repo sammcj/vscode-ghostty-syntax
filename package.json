@@ -6,7 +6,7 @@
       "keytar"
     ]
   },
-  "displayName": "Ghostty Config",
+  "displayName": "Ghostty Config Syntax",
   "description": "Syntax highlighting, validation, completions, and hover documentation for Ghostty terminal configuration files",
   "version": "1.0.2",
   "publisher": "SamMcLeod",
@@ -36,6 +36,9 @@
     "syntax highlighting"
   ],
   "main": "./out/extension.js",
+  "activationEvents": [
+    "onLanguage:ghostty-config-syntax"
+  ],
   "contributes": {
     "languages": [
       {

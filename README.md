@@ -1,4 +1,4 @@
-# Ghostty Config VSCode Extension
+# Ghostty Config Syntax (VSCode Extension)
 
 VS Code extension providing syntax highlighting, validation, completions, and hover documentation for [Ghostty](https://ghostty.org) terminal configuration files.
 
@@ -30,8 +30,8 @@ Supported config locations:
 
 ## Configuration
 
-| Setting                             | Default   | Description                           |
-|-------------------------------------|-----------|---------------------------------------|
+| Setting                                    | Default   | Description                           |
+|--------------------------------------------|-----------|---------------------------------------|
 | `ghostty-config-syntax.enableDiagnostics`  | `true`    | Enable real-time validation           |
 | `ghostty-config-syntax.diagnosticSeverity` | `Warning` | Severity for unknown key diagnostics  |
 | `ghostty-config-syntax.showPlatformHints`  | `true`    | Show hints for platform-specific keys |
