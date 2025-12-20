@@ -863,10 +863,11 @@
       "examples": ["native", "transparent", "tabs"]
     },
     "macos-titlebar-proxy-icon": {
-      "type": "boolean",
+      "type": "enum",
       "description": "Whether to show proxy icon in titlebar.",
+      "enum": ["visible", "hidden"],
       "platforms": ["macos"],
-      "examples": ["true", "false"]
+      "examples": ["visible", "hidden"]
     },
     "macos-option-as-alt": {
       "type": "boolean",
