@@ -17,6 +17,7 @@
     "keybind",
     "env",
     "input",
+    "link",
     "shell-integration-features",
     "config-file",
     "command-palette-entry"
@@ -223,8 +224,8 @@
     "font-shaping-break": {
       "type": "enum",
       "description": "Where to break text shaping runs.",
-      "enum": ["cursor"],
-      "examples": ["cursor"]
+      "enum": ["cursor", "no-cursor"],
+      "examples": ["cursor", "no-cursor"]
     },
     "freetype-load-flags": {
       "type": "enum",
@@ -344,11 +345,9 @@
       "examples": ["true", "false"]
     },
     "background-blur": {
-      "type": "number",
-      "description": "Background blur intensity (0-255). Ignored on some compositors.",
-      "minimum": 0,
-      "maximum": 255,
-      "examples": ["0", "20", "50"]
+      "type": "string",
+      "description": "Background blur intensity. Boolean or number 0-255. Ignored on some compositors.",
+      "examples": ["true", "false", "0", "20", "50"]
     },
     "window-padding-x": {
       "type": "string",
@@ -390,8 +389,8 @@
     "window-decoration": {
       "type": "enum",
       "description": "Type of window decorations.",
-      "enum": ["auto", "none", "client", "server"],
-      "examples": ["auto", "none"]
+      "enum": ["auto", "none", "client", "server", "true", "false"],
+      "examples": ["auto", "none", "false"]
     },
     "window-title-font-family": {
       "type": "string",
@@ -644,6 +643,12 @@
       "description": "Whether to use safe bracketed paste mode.",
       "examples": ["true", "false"]
     },
+    "link": {
+      "type": "string",
+      "description": "Custom regex pattern matching for URLs/text. Format: regex:PATTERN action:ACTION.",
+      "repeatable": true,
+      "examples": ["regex:(file://[^ ]+) action:open"]
+    },
     "link-url": {
       "type": "boolean",
       "description": "Whether to enable URL link detection.",
@@ -846,8 +851,8 @@
     "scroll-to-bottom": {
       "type": "enum",
       "description": "When to scroll to bottom automatically.",
-      "enum": ["keystroke", "output"],
-      "examples": ["keystroke"]
+      "enum": ["keystroke", "output", "no-keystroke", "no-output"],
+      "examples": ["keystroke", "no-output"]
     },
     "macos-non-native-fullscreen": {
       "type": "boolean",
@@ -870,10 +875,11 @@
       "examples": ["visible", "hidden"]
     },
     "macos-option-as-alt": {
-      "type": "boolean",
-      "description": "Whether to treat option key as alt.",
+      "type": "enum",
+      "description": "Whether to treat option key as alt. Use left/right to enable for only one key.",
+      "enum": ["true", "false", "left", "right"],
       "platforms": ["macos"],
-      "examples": ["true", "false"]
+      "examples": ["true", "false", "left", "right"]
     },
     "macos-window-shadow": {
       "type": "boolean",
@@ -1042,6 +1048,7 @@
         "open_config", "reload_config",
         "close_surface", "close_tab", "close_window", "close_all_windows",
         "toggle_secure_input", "toggle_command_palette", "toggle_quick_terminal",
+        "toggle_macos_option_as_alt",
         "check_for_updates", "undo", "redo", "quit", "crash"
       ]
     },
